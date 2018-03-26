@@ -28,6 +28,7 @@
         <dependency>
             <groupId>de.klaut</groupId>
             <artifactId>frontend</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
