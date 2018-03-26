@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+
+
+body {
+  margin: 0;
+}
+
+.spacer {
+  width: 12px;
+}
+
+.toolbar-img {
+  position: relative;
+  top: 5px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.flex-item {
+  flex-basis: 20%;
+  /* flex-grow: 1; */
+}
+
+.card {
+  min-width: 20%;
+
+}
+
+@media (max-width: 35em) { 
+  .flex-item {
+    flex-basis: auto;
+  }
+}
