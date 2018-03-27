@@ -13,6 +13,7 @@ import {Service} from './service';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatTableModule} from '@angular/material/table';
 
 import { AppComponent } from './app.component';
 import { CardComponent } from './card/card.component';
@@ -37,7 +38,8 @@ import { CardComponent } from './card/card.component';
     MatTabsModule,
     MatDialogModule,
     MatInputModule,
-    MatRadioModule
+    MatRadioModule,
+    MatTableModule
   ],
   exports: [
     MatToolbarModule,
