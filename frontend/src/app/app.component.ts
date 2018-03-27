@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Service } from './service';
-import { Item } from './Item';
+import { Item } from './item';
 
 
 @Component({
