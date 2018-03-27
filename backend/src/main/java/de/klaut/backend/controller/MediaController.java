@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/media")
+@RequestMapping("api/media")
 public class MediaController {
 
     @Autowired
