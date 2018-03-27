@@ -12,7 +12,7 @@ export class Service {
     constructor(private http:HttpClient) {}
  
     // Uses http.get() to load data from a single API endpoint
-    getFoods() {
-        return this.http.get('k m');
+    getData() {
+        return this.http.get('http://localhost:4200/api/media');
     }
 }

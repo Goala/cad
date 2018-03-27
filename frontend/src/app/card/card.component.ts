@@ -11,8 +11,7 @@ import { Observable } from 'rxjs/Rx';
 })
 export class CardComponent implements OnInit {
 
-  cards = CARDS;
-  foods: any;
+  cards: any;
   
   constructor(private _service: Service) { }
 
@@ -21,10 +20,10 @@ export class CardComponent implements OnInit {
   }
  
   getFoods() {
-   this._service.getFoods().subscribe(
-      data => { this.foods = data},
+   this._service.getData().subscribe(
+      data => { this.cards = data},
       err => console.error(err),
-      () => console.log('done loading foods')
+      () => console.log('Done')
     );
   }
 
