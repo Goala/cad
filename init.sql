@@ -9,10 +9,10 @@ create sequence hibernate_sequence start with 1 increment by 1;
         type integer,
         primary key (id)
     );
-
---INSERT INTO media (description, file, type, id) VALUES ('Test Image',
---                                                        pg_read_file('test1.jpg')::bytea, 2, 0);
---INSERT INTO media (description, file, type, id) VALUES ('Test Video',
---                                                        pg_read_file('./test1.mp4')::bytea, 1, 1);
---INSERT INTO media (description, file, type, id) VALUES ('Test Audio',
---                                                        pg_read_file('./test1.mp3')::bytea, 0, 2);
+-- TODO: try to add the images to the postgres db
+INSERT INTO media (description, file, type, id) VALUES ('Test Image',
+                                                        null, 2, 0);
+INSERT INTO media (description, file, type, id) VALUES ('Test Video',
+                                                        null, 1, 1);
+INSERT INTO media (description, file, type, id) VALUES ('Test Audio',
+                                                        null, 0, 2);
