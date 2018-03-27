@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Card } from '../card';
 import { CARDS } from '../mock-cards';
+import { Service } from '../service';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-card',
@@ -10,10 +12,20 @@ import { CARDS } from '../mock-cards';
 export class CardComponent implements OnInit {
 
   cards = CARDS;
-
-  constructor() { }
+  foods: any;
+  
+  constructor(private _service: Service) { }
 
   ngOnInit() {
+    this.getFoods();
+  }
+ 
+  getFoods() {
+   this._service.getFoods().subscribe(
+      data => { this.foods = data},
+      err => console.error(err),
+      () => console.log('done loading foods')
+    );
   }
 
 }

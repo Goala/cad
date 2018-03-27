@@ -5,6 +5,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { HttpClientModule } from '@angular/common/http';
+import {HttpModule} from '@angular/http';
+import {Service} from './service';
 
 import { AppComponent } from './app.component';
 import { CardComponent } from './card/card.component';
@@ -22,12 +25,17 @@ import { CardComponent } from './card/card.component';
     BrowserAnimationsModule,
     FlexLayoutModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    HttpClientModule,
+    HttpModule
   ],
   exports: [
     MatToolbarModule,
     MatButtonModule],
-  providers: [],
+  providers: [
+    HttpClientModule,
+    Service
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
