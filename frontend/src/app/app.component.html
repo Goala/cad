@@ -10,23 +10,26 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<mat-form-field class="full-width">
-  <input matInput placeholder="Beschreibung" 
-          [(ngModel)]="card.description" 
-          [ngModelOptions]="{standalone: true}"
-          (ngModelChange)="test()"> 
-</mat-form-field>
-<mat-radio-group class="radio-group"
-                 [(ngModel)]="card.type">
-  <mat-radio-button class="radio-button" 
-                    *ngFor="let type of types" 
-                    [value]="type">
-    {{type}}
-  </mat-radio-button>
-</mat-radio-group>
-<input type="file">   
+<div class="form">
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Beschreibung" 
+            [(ngModel)]="item.description" 
+            [ngModelOptions]="{standalone: true}"
+            (ngModelChange)="test()"> 
+  </mat-form-field>
+  <mat-radio-group class="radio-group"
+                   [(ngModel)]="item.type">
+    <mat-radio-button class="radio-button" 
+                      *ngFor="let type of types" 
+                      [value]="type">
+      {{type}}
+    </mat-radio-button>
+  </mat-radio-group>
+  <input type="file">   
+  <button disabled="disabled">mäh</button>
+</div>
 
-<app-card></app-card>
+<item-list></item-list>
 
 
 

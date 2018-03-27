@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Service } from './service';
-import { Card } from './card';
+import { Item } from './Item';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class AppComponent {
   types = ['AUDIO', 'IMAGE', 'VIDEO'];
 
   description= '';
-  card: Card = {
+  item: Item = {
     description: '',
     type: ''
   }
@@ -22,6 +22,6 @@ export class AppComponent {
   constructor(private _service: Service) { };
 
   test(){
-    console.log(this.card);
+    console.log(this.item);
   }
 }

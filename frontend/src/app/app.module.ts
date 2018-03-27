@@ -16,13 +16,13 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatTableModule} from '@angular/material/table';
 
 import { AppComponent } from './app.component';
-import { CardComponent } from './card/card.component';
+import { ItemList } from './itemList/itemList.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CardComponent
+    ItemList
   ],
   imports: [
     BrowserModule,

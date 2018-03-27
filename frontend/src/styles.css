@@ -69,3 +69,7 @@ body {
   overflow: auto;
   max-height: 500px;
 }
+
+.form {
+  margin: 12px;
+}

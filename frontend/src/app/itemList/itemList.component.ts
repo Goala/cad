@@ -1,19 +1,20 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Card } from '../card';
+import { Component, OnInit, Input, OnChanges, DoCheck, AfterViewChecked, AfterContentInit, AfterContentChecked, AfterViewInit } from '@angular/core';
+import { Item } from '../item';
 import { CARDS } from '../mock-cards';
 import { Service } from '../service';
 import { Observable } from 'rxjs/Rx';
 import {MatTableDataSource} from '@angular/material';
+import { filter } from 'rxjs/operator/filter';
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css']
+  selector: 'item-list',
+  templateUrl: './itemList.component.html',
+  styleUrls: ['./itemList.component.css']
 })
 
-export class CardComponent implements OnInit {
+export class ItemList implements OnInit {
 
-  cards: any;
+  cards: Item[];
   displayedColumns = ['description', 'type'];
   dataSource = new MatTableDataSource(this.cards);
   
@@ -32,7 +33,8 @@ export class CardComponent implements OnInit {
   getData() {
    this._service.getData().subscribe(
       data => { 
-        this.cards = data as Card;
+        this.cards = data as Item[];
+        this.dataSource = new MatTableDataSource(this.cards);
       },
       err => console.error(err),
       () => console.log(this.cards)
