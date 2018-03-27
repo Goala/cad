@@ -9,7 +9,7 @@ create sequence hibernate_sequence start with 1 increment by 1;
         type integer,
         primary key (id)
     );
--- TODO: try to add the images to the postgres db
+-- TODO: Try to add the images to the postgres db
 INSERT INTO media (description, file, type, id) VALUES ('Test Image',
                                                         null, 2, 0);
 INSERT INTO media (description, file, type, id) VALUES ('Test Video',
