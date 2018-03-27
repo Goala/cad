@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Service } from './service';
+import { Card } from './card';
 
 
 @Component({
@@ -9,4 +11,17 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   title = 'Team Klaut';
+  types = ['AUDIO', 'IMAGE', 'VIDEO'];
+
+  description= '';
+  card: Card = {
+    description: '',
+    type: ''
+  }
+
+  constructor(private _service: Service) { };
+
+  test(){
+    console.log(this.card);
+  }
 }

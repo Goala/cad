@@ -16,10 +16,10 @@ export class CardComponent implements OnInit {
   constructor(private _service: Service) { }
 
   ngOnInit() {
-    this.getFoods();
+    this.getData();
   }
  
-  getFoods() {
+  getData() {
    this._service.getData().subscribe(
       data => { this.cards = data},
       err => console.error(err),

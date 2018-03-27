@@ -13,6 +13,14 @@ export class Service {
  
     // Uses http.get() to load data from a single API endpoint
     getData() {
-        return this.http.get('http://localhost:4200/api/media');
+        return this.http.get('/api/media');
+    }
+
+    post(data: any) {
+        return this.http.post('/api/media', data);
+    }
+
+    put(id: number, data: String) {
+        return this.http.put(`/api/media/${id}`, data);
     }
 }
