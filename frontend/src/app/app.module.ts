@@ -9,7 +9,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { HttpClientModule } from '@angular/common/http';
 import {HttpModule} from '@angular/http';
-import {Service} from './service';
+import {MediaService} from './service';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import {MatRadioModule} from '@angular/material/radio';
@@ -27,7 +27,7 @@ import { ItemList } from './itemList/itemList.component';
   imports: [
     BrowserModule,
     FormsModule,
-    MatToolbarModule, 
+    MatToolbarModule,
     MatButtonModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
@@ -46,7 +46,7 @@ import { ItemList } from './itemList/itemList.component';
     MatButtonModule],
   providers: [
     HttpClientModule,
-    Service
+    MediaService
   ],
   bootstrap: [AppComponent]
 })

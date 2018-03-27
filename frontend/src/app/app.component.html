@@ -5,28 +5,26 @@
     <span class="example-fill-remaining-space"></span>
     <span class="spacer"></span>
     <span class="align-center"> Welcome to {{ title }}!</span>
-    <!-- <button mat-button>About</button>
-    <button mat-button>Contact</button> -->
   </mat-toolbar-row>
 </mat-toolbar>
 
 <div class="form">
   <mat-form-field class="full-width">
-    <input matInput placeholder="Beschreibung" 
-            [(ngModel)]="item.description" 
+    <input matInput placeholder="Beschreibung"
+            [(ngModel)]="item.description"
             [ngModelOptions]="{standalone: true}"
-            (ngModelChange)="test()"> 
+            (ngModelChange)="test()">
   </mat-form-field>
   <mat-radio-group class="radio-group"
                    [(ngModel)]="item.type">
-    <mat-radio-button class="radio-button" 
-                      *ngFor="let type of types" 
+    <mat-radio-button class="radio-button"
+                      *ngFor="let type of types"
                       [value]="type">
       {{type}}
     </mat-radio-button>
   </mat-radio-group>
-  <input type="file">   
-  <button disabled="disabled">mäh</button>
+  <input type="file">
+  <button disabled="disabled">Upload</button>
 </div>
 
 <item-list></item-list>

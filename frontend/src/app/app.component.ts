@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Service } from './service';
+import {MediaService} from './service';
 import { Item } from './item';
 
 
@@ -10,16 +10,16 @@ import { Item } from './item';
 })
 
 export class AppComponent {
-  title = 'Team Klaut';
+  title = 'ThatOne';
   types = ['AUDIO', 'IMAGE', 'VIDEO'];
 
-  description= '';
   item: Item = {
+    id: -1,
     description: '',
     type: ''
   }
 
-  constructor(private _service: Service) { };
+  constructor(private service: MediaService) { };
 
   test(){
     console.log(this.item);
