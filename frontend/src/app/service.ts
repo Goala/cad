@@ -19,8 +19,11 @@ export class MediaService {
         return this.http.get('/media');
     }
 
+    getBase64ById(id) {
+        return this.http.get(`/media/${id}/base64`);
+    }
+
     postData(data: MediaDto): Observable<MediaDto> {
-        console.log("sumbit", data);
         return this.http.post<MediaDto>('/media', JSON.stringify(data), httpOptions);
     }
 }
