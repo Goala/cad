@@ -1,6 +1,7 @@
 package de.klaut.backend.controller;
 
 import de.klaut.backend.model.Media;
+import de.klaut.backend.model.MediaDto;
 import de.klaut.backend.service.MediaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -43,9 +44,9 @@ public class MediaController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Long> saveFile(@RequestBody Media media) {
+    public ResponseEntity<Long> saveFile(@RequestBody MediaDto mediaDto) {
         try {
-            final Long id = mediaService.save(media);
+            final Long id = mediaService.save(mediaDto);
             return ResponseEntity.ok(id);
         } catch (Exception e){
             return ResponseEntity.badRequest().build();
