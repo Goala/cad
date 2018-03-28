@@ -13,10 +13,10 @@ export class MediaService {
 
     // Uses http.get() to load data from a single API endpoint
     getData() {
-        return this.http.get('/api/media');
+        return this.http.get('/media');
     }
 
     postData(data: MediaDto) {
-        return this.http.post('/api/media', JSON.stringify(data));
+        return this.http.post('/media', JSON.stringify(data));
     }
 }
