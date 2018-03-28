@@ -30,5 +30,9 @@ public class Media {
     public Media(MediaDto mediaDto) {
         description = mediaDto.getDescription();
         type = Type.valueOf(mediaDto.getType());
+        String base64 = mediaDto.getBase64();
+        if(base64 != null && !base64.isEmpty()) {
+            file = base64.getBytes();
+        }
     }
 }
