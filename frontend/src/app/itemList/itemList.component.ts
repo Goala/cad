@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Item} from '../item';
+import {Media} from '../media';
 import {MediaService} from '../service';
 import {MatTableDataSource} from '@angular/material';
 
@@ -11,7 +11,7 @@ import {MatTableDataSource} from '@angular/material';
 
 export class ItemList implements OnInit {
 
-  cards: Item[];
+  cards: Media[];
   displayedColumns = ['description', 'type'];
   dataSource = new MatTableDataSource(this.cards);
 
@@ -30,7 +30,7 @@ export class ItemList implements OnInit {
   getData() {
    this._service.getData().subscribe(
       data => {
-        this.cards = data as Item[];
+        this.cards = data as Media[];
         this.dataSource = new MatTableDataSource(this.cards);
       },
       err => console.error(err),
