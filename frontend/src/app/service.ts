@@ -17,6 +17,7 @@ export class MediaService {
     }
 
     postData(data: MediaDto) {
-        return this.http.post('/media', JSON.stringify(data));
+        console.log("sumbit");
+        return this.http.post('/media', JSON.stringify(data), httpOptions);
     }
 }

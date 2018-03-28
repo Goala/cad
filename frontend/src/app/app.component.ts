@@ -13,7 +13,6 @@ export class AppComponent {
   types = ['AUDIO', 'IMAGE', 'VIDEO'];
 
   mediaDto: MediaDto = {
-    id: -1,
     description: '',
     type: '',
     base64: '' 
@@ -33,7 +32,6 @@ export class AppComponent {
   }
 
   submit() {
-    console.log("sumbit");
     this.service.postData(this.mediaDto);
   }
 
