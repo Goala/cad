@@ -21,4 +21,8 @@ public class MediaService {
     public Optional<Media> findById(Long id) {
         return mediaRepository.findById(id);
     }
+
+    public Long save(Media media) {
+        return mediaRepository.save(media).getId();
+    }
 }
