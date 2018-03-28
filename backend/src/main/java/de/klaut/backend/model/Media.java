@@ -22,7 +22,7 @@ public class Media {
 
     private String fileEnding;
 
-    @Lob
+    @org.hibernate.annotations.Type(type = "org.hibernate.type.BinaryType")
     @JsonIgnore
     private byte[] file;
 
