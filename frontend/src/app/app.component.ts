@@ -11,7 +11,7 @@ import { ItemList} from './itemList/itemList.component';
 
 export class AppComponent implements OnInit {
   title = 'ThatOne';
-  items: Media[] = [];
+  items: Array<Media> = [];
   types = ['AUDIO', 'IMAGE', 'VIDEO'];
   base64: string = '';
   
@@ -44,8 +44,9 @@ export class AppComponent implements OnInit {
       ...this.media
     }
     this.service.postData(mediaDto).subscribe(res => {
-      this.items = this.loadData();
-      console.log(res);
+      this.items.push(res);
+      // console.log(res, "res", this.items);
+      this.loadData();
     });
   };
 
@@ -54,15 +55,15 @@ export class AppComponent implements OnInit {
            this.base64 = btoa(binaryString);
    }
 
-   loadData(): Media[] {
+   loadData(): Array<Media> {
      this.service.getData().subscribe(
       data => {
-        this.items = data as Media[];
+        this.items = data as Array<Media>;
         return data;
       },
       err => console.error(err),
       () => {
-        console.log(this.items)
+        //console.log(this.items)
     });
     return [];
   }

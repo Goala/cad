@@ -16,7 +16,7 @@
     <!-- description Column -->
     <ng-container matColumnDef="description">
       <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+      <mat-cell *matCellDef="let element" (click)="openMedia()"> {{element.description}} </mat-cell>
     </ng-container>
 
     <!-- Type Column -->
