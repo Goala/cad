@@ -1,10 +1,13 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {MediaDto} from './media';
+import {Observable} from 'rxjs/Observable';
 
 const httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+    })
+  };
 
 @Injectable()
 export class MediaService {
@@ -16,8 +19,8 @@ export class MediaService {
         return this.http.get('/media');
     }
 
-    postData(data: MediaDto) {
-        console.log("sumbit");
-        return this.http.post('/media', JSON.stringify(data), httpOptions);
+    postData(data: MediaDto): Observable<MediaDto> {
+        console.log("sumbit", data);
+        return this.http.post<MediaDto>('/media', JSON.stringify(data), httpOptions);
     }
 }

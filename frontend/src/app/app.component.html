@@ -11,12 +11,11 @@
 <div class="form">
   <mat-form-field class="full-width">
     <input matInput placeholder="Beschreibung"
-            [(ngModel)]="mediaDto.description"
-            [ngModelOptions]="{standalone: true}"
-            (ngModelChange)="test()">
+            [(ngModel)]="media.description"
+            [ngModelOptions]="{standalone: true}">
   </mat-form-field>
   <mat-radio-group class="radio-group"
-                   [(ngModel)]="mediaDto.type">
+                   [(ngModel)]="media.type">
     <mat-radio-button class="radio-button"
                       *ngFor="let type of types"
                       [value]="type">
@@ -27,7 +26,7 @@
   <button  (click)="submit()">Upload</button>
 </div>
 
-<item-list></item-list>
+<item-list [items]="items"></item-list>
 
 
 

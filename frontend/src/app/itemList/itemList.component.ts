@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Injectable, AfterViewChecked, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {Media} from '../media';
 import {MediaService} from '../service';
 import {MatTableDataSource} from '@angular/material';
@@ -9,32 +9,29 @@ import {MatTableDataSource} from '@angular/material';
   styleUrls: ['./itemList.component.css']
 })
 
-export class ItemList implements OnInit {
-
-  cards: Media[];
+export class ItemList implements OnInit, OnChanges {
   displayedColumns = ['description', 'type'];
-  dataSource = new MatTableDataSource(this.cards);
+  dataSource;
+
+  @Input() 
+  items: Media[];
+  
 
   constructor(private _service: MediaService) { }
 
   ngOnInit() {
-    this.getData();
+    this.dataSource = new MatTableDataSource(this.items);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['items']) {
+      this.dataSource = new MatTableDataSource(this.items);
+    }
   }
 
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
-  }
-
-  getData() {
-   this._service.getData().subscribe(
-      data => {
-        this.cards = data as Media[];
-        this.dataSource = new MatTableDataSource(this.cards);
-      },
-      err => console.error(err),
-      () => console.log(this.cards)
-    );
   }
 }
