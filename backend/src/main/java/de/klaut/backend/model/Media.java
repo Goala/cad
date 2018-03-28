@@ -27,4 +27,8 @@ public class Media {
     @JsonIgnore
     private byte[] file;
 
+    public Media(MediaDto mediaDto) {
+        description = mediaDto.getDescription();
+        type = Type.valueOf(mediaDto.getType());
+    }
 }

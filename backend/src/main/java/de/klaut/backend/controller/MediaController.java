@@ -46,7 +46,8 @@ public class MediaController {
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Long> saveFile(@RequestBody MediaDto mediaDto) {
         try {
-            final Long id = mediaService.save(mediaDto);
+            Media mediaToSave = new Media(mediaDto);
+            final Long id = mediaService.save(mediaToSave);
             return ResponseEntity.ok(id);
         } catch (Exception e){
             return ResponseEntity.badRequest().build();

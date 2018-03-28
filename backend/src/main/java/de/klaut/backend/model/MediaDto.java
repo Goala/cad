@@ -9,7 +9,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class MediaDto extends Media{
+public class MediaDto{
 
+    private String description;
+    private String type;
     private String base64;
 }
