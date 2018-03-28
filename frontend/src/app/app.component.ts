@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MediaService } from './service';
 import { Media, MediaDto } from './media';
-import { ItemList} from './itemList/itemList.component';
+import { ItemList } from './itemList/itemList.component';
 
 @Component({
   selector: 'app-root',
@@ -14,13 +14,14 @@ export class AppComponent implements OnInit {
   items: Array<Media> = [];
   types = ['AUDIO', 'IMAGE', 'VIDEO'];
   base64: string = '';
-  
+  fileEnding: string = '';
+
   media: Media = {
     id: -1,
     fileEnding: '',
     description: '',
     type: '',
-    fileBase64:''
+    fileBase64: ''
   }
 
   constructor(private service: MediaService) { };
@@ -32,11 +33,10 @@ export class AppComponent implements OnInit {
   uploadFile(event) {
     let files = event.target.files;
     if (files.length > 0) {
-      // console.log(files[0]); // You will see the file
       let reader = new FileReader();
-      reader.onload =this._handleReaderLoaded.bind(this);
+      reader.onload = this._handleReaderLoaded.bind(this);
       reader.readAsBinaryString(files[0]);
-
+      this.media.fileEnding = files[0]["name"].split(".", 2)[1];
     }
   };
 
@@ -47,18 +47,17 @@ export class AppComponent implements OnInit {
     }
     this.service.postData(mediaDto).subscribe(res => {
       this.items.push(res);
-      // console.log(res, "res", this.items);
       this.loadData();
     });
   };
 
   _handleReaderLoaded(readerEvt) {
     var binaryString = readerEvt.target.result;
-           this.base64 = btoa(binaryString);
-   }
+    this.base64 = btoa(binaryString);
+  }
 
-   loadData(): Array<Media> {
-     this.service.getData().subscribe(
+  loadData(): Array<Media> {
+    this.service.getData().subscribe(
       data => {
         this.items = data as Array<Media>;
         return data;
@@ -66,7 +65,7 @@ export class AppComponent implements OnInit {
       err => console.error(err),
       () => {
         //console.log(this.items)
-    });
+      });
     return [];
   }
 }

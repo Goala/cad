@@ -35,7 +35,7 @@ public class Media {
         fileEnding = mediaDto.getFileEnding();
         String base64 = mediaDto.getBase64();
         if (base64 != null && !base64.isEmpty()) {
-            file = base64.getBytes();
+            file = Base64.getDecoder().decode(base64);
         }
     }
 
