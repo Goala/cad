@@ -16,8 +16,8 @@ import javax.persistence.*;
 public class Media {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
     private String description;
 
