@@ -17,8 +17,10 @@ export class AppComponent implements OnInit {
   
   media: Media = {
     id: -1,
+    fileEnding: '',
     description: '',
-    type: ''
+    type: '',
+    fileBase64:''
   }
 
   constructor(private service: MediaService) { };

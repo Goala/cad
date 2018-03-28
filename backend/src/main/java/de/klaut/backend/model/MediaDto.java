@@ -14,4 +14,5 @@ public class MediaDto{
     private String description;
     private String type;
     private String base64;
+    private String fileEnding;
 }

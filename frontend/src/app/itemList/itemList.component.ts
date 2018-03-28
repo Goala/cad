@@ -1,8 +1,8 @@
-import {Component, OnInit, Injectable, AfterViewChecked, Input, OnChanges, SimpleChanges, Inject} from '@angular/core';
-import {Media} from '../media';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import {MediaService} from '../service';
-import {MatTableDataSource} from '@angular/material';
+import { Component, OnInit, Injectable, AfterViewChecked, Input, OnChanges, SimpleChanges, Inject } from '@angular/core';
+import { Media } from '../media';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MediaService } from '../service';
+import { MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'item-list',
@@ -11,12 +11,12 @@ import {MatTableDataSource} from '@angular/material';
 })
 
 export class ItemList implements OnInit, OnChanges {
-  displayedColumns = ['description', 'type'];
+  displayedColumns = ['description', 'type', 'media'];
   dataSource;
 
-  @Input() 
+  @Input()
   items: Array<Media>;
-  
+
 
   constructor(private service: MediaService) { }
 
@@ -53,9 +53,10 @@ export class ItemList implements OnInit, OnChanges {
       err => console.error(err),
       () => {
         //console.log(this.items)
-    });
+    }); 
+  }
     
-
-    
+  base64(element: Media) {
+    return 'data:' + element.type + '/' + element.fileEnding + ';base64,' + element.fileBase64;
   }
 }
