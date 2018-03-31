@@ -8,6 +8,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { HttpClientModule } from '@angular/common/http';
+import { NgHttpLoaderModule } from 'ng-http-loader/ng-http-loader.module';
 import {HttpModule} from '@angular/http';
 import {MediaService} from './service';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -39,7 +40,8 @@ import { ItemList } from './itemList/itemList.component';
     MatDialogModule,
     MatInputModule,
     MatRadioModule,
-    MatTableModule
+    MatTableModule,
+    NgHttpLoaderModule
   ],
   exports: [
     MatToolbarModule,
