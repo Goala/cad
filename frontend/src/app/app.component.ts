@@ -1,7 +1,7 @@
 import {Component, DoCheck, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {MediaService} from './service';
 import {Media, MediaDto} from './media';
-import {ItemList} from './itemList/itemList.component';
+import Utils from './utils/utils';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +10,6 @@ import {ItemList} from './itemList/itemList.component';
 })
 
 export class AppComponent implements OnInit, OnChanges {
-  audioFormats: Array<string> = ['MP3', 'WMA', 'OGG', 'ACC'];
-  imageFormats: Array<string> = ['JPG', 'JPEG', 'GIF', 'BMP', 'TIFF', 'PNG'];
-  videoFormats: Array<string> = ['MPG', 'MP4', 'AVI', 'MOV', 'FlV', 'SWF', 'RM'];
-
   title = 'ThatOne';
   items: Array<Media> = [];
   types = ['AUDIO', 'IMAGE', 'VIDEO'];
@@ -91,14 +87,8 @@ export class AppComponent implements OnInit, OnChanges {
     return [];
   }
 
-  checkFileType(type: String) {
-    if (this.imageFormats.indexOf(type.toUpperCase()) > -1) {
-      this.media.type = this.types[1];
-    } else if (this.videoFormats.indexOf(type.toUpperCase()) > -1) {
-      this.media.type = this.types[2];
-    } else if (this.audioFormats.indexOf(type.toUpperCase()) > -1) {
-      this.media.type = this.types[0];
-    }
+  checkFileType(type: string) {
+    this.media.type = Utils.checkFormat(type);
   }
 
   checkForValues(): void {
