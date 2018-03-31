@@ -11,8 +11,7 @@
 <div class="form">
   <mat-form-field class="full-width">
     <input matInput placeholder="Beschreibung"
-            [(ngModel)]="media.description"
-            [ngModelOptions]="{standalone: true}">
+           [(ngModel)]="media.description">
   </mat-form-field>
   <mat-radio-group class="radio-group"
                    [(ngModel)]="media.type">
@@ -23,7 +22,8 @@
     </mat-radio-button>
   </mat-radio-group>
   <input type="file" (change)="uploadFile($event)">
-  <button  (click)="submit()">Upload</button>
+  <button [disabled]="uploadEnabled"
+          (click)="submit()">Upload</button>
 </div>
 
 <item-list [items]="items"></item-list>
