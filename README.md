@@ -1,6 +1,6 @@
 # Cloud Application Development
 
-# Technologies
+## Technologies
 
 - Java
 - Spring Boot
@@ -12,10 +12,10 @@
 - PostgreSQL DB
 - Docker (-compose)
 
-# Backend (Spring Boot)
+## Backend (Spring Boot)
 The backend is developed in Java with the Spring Boot Framework, built with Maven and represents a REST-Service.
 
-## Getting Started
+### Getting Started
 
 To start the Backend run 
 
@@ -48,16 +48,6 @@ Schema creation is done by a SQL script which has to be placed inside the Postgr
 
 The Rest Endpoints are documented via Swagger which is available under [Swagger UI](http://localhost:8080/swagger-ui.html) after start.
 
-
-##### Get Media
-![get-media](readme-files/get-media.png)
-
-##### Post Media
-![post-media](readme-files/post-media.png)
-
-#### Find Media By Id
-![get-one-media](readme-files/get-one-media.png)
-
 ## Frontend (Angular)
 
 The frontend is developed using TypeScript and the Framework Angular.
@@ -83,7 +73,7 @@ mvn install
 The artifact is a dependency in the backen project and get copied in the spring `static` folder and gets therefore shipped with the backend jar.
 
 
-# Deployment (Docker)
+## Deployment (Docker)
 For deployment use:
 
 ```
@@ -117,7 +107,7 @@ Docker runs the Maven `install` goal while building the image and executes the j
 The hole application is deployed on an AWS EC2-Instance available [here](http://ec2-54-202-250-94.us-west-2.compute.amazonaws.com/).
 
 
-## "Continuous deployment"
+### "Continuous deployment"
 
 A cron job is installed on the EC2 instance which runs the `update.sh` script every 10 minutes.
 
