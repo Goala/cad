@@ -104,7 +104,7 @@ Docker runs the Maven `install` goal while building the image and executes the j
 
 **Therefore the only thing which has to be installed on the Server is Docker.**
 
-The hole application is deployed on an AWS EC2-Instance available [here](http://ec2-54-202-250-94.us-west-2.compute.amazonaws.com/).
+The hole application is deployed on an AWS EC2-Instance available [here](http://ec2-54-187-207-171.us-west-2.compute.amazonaws.com).
 
 
 ### "Continuous deployment"
