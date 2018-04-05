@@ -85,31 +85,20 @@ The backend and the PostgreSQL DB get wired together via docker-compose and run 
 Each container consists of a single Docker-Image:
 
 - PostgreSQL DB Image (pulled from the Docker Hub)
-- App-Image (built from the projects Dockerfile inheriting a Maven image)
+- App-Image (built from the projects Dockerfile inheriting a Java image)
+
+The App image is stored in the Docker registry Docker Hub and gets pulled from there while `docker-compose up`.
 
 App-Image:
 
 ```
-FROM maven:3.5.3-jdk-8
+FROM java:openjdk-8u91-jdk
 EXPOSE 8080
-COPY ./backend /backend
-COPY ./frontend /frontend
-RUN mvn -f /frontend clean install
-RUN mvn -f /backend clean install
-
-CMD java -jar -Dspring.profiles.active=prod /backend/target/backend*.jar
+CMD java -jar -Dspring.profiles.active=prod backend*.jar
+COPY backend/target/backend*.jar .
 ```
 
-Docker runs the Maven `install` goal while building the image and executes the jar when starting the container.
 
-**Therefore the only thing which has to be installed on the Server is Docker.**
+The hole application is deployed on an AWS EC2-Instance available [here](http://ec2-34-208-179-7.us-west-2.compute.amazonaws.com).
 
-The hole application is deployed on an AWS EC2-Instance available [here](http://ec2-54-187-207-171.us-west-2.compute.amazonaws.com).
-
-
-### "Continuous deployment"
-
-A cron job is installed on the EC2 instance which runs the `update.sh` script every 10 minutes.
-
-The script performs a check if there are any new changes in the git repository. If a new commit is available the `buildAndDeploy.sh` script is called which deploys the newer version.
 
