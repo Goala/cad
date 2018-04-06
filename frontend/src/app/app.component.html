@@ -22,7 +22,12 @@
       {{type}}
     </mat-radio-button>
   </mat-radio-group>
-  <input type="file" (change)="uploadFile($event)">
+  <input id="file-upload"
+         class="file-upload"
+         type="file"
+         (change)="uploadFile($event)"
+         [value]="base64">
+
   <button [disabled]="uploadEnabled"
           (click)="submit()">Upload</button>
 </div>
