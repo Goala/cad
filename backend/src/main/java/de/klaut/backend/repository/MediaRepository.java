@@ -1,11 +1,11 @@
 package de.klaut.backend.repository;
 
 import de.klaut.backend.model.Media;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.socialsignin.spring.data.dynamodb.repository.DynamoDBCrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface MediaRepository extends JpaRepository<Media, Long> {
+public interface MediaRepository extends DynamoDBCrudRepository<Media, String> {
 
 
 }

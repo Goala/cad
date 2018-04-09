@@ -6,6 +6,7 @@ import de.klaut.backend.service.MediaService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,25 +21,24 @@ public class MediaController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<List<Media>> findAll() {
-        return ResponseEntity.ok(mediaService.findAll());
+    public ResponseEntity<Iterable<Media>> findAll(@PathParam("from") int fromIndex, @PathParam("to") int toIndex) {
+        return ResponseEntity.ok(mediaService.findAll(fromIndex, toIndex));
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Media> findById(@PathVariable Long id) {
+    public ResponseEntity<Media> findById(@PathVariable String id) {
         Optional<Media> mediaOptional = mediaService.findById(id);
         return mediaOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Long> saveFile(@RequestBody MediaDto mediaDto) {
+    public ResponseEntity<String> saveFile(@RequestBody MediaDto mediaDto) {
         try {
             Media mediaToSave = new Media(mediaDto);
-            final Long id = mediaService.save(mediaToSave);
+            final String id = mediaService.save(mediaToSave);
             return ResponseEntity.ok(id);
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
     }
-
 }

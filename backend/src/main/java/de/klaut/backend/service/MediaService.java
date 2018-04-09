@@ -2,27 +2,29 @@ package de.klaut.backend.service;
 
 import de.klaut.backend.model.Media;
 import de.klaut.backend.repository.MediaRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
 public class MediaService {
 
-    @Autowired
     private MediaRepository mediaRepository;
 
-    public List<Media> findAll() {
+    public MediaService(MediaRepository mediaRepository){
+
+        this.mediaRepository = mediaRepository;
+    }
+
+    public Iterable<Media> findAll(int fromIndex, int toIndex) {
         return mediaRepository.findAll();
     }
 
-    public Optional<Media> findById(Long id) {
+    public Optional<Media> findById(String id) {
         return mediaRepository.findById(id);
     }
 
-    public Long save(Media media) {
+    public String save(Media media) {
         return mediaRepository.save(media).getId();
     }
 }
