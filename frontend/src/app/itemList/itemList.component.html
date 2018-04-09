@@ -29,15 +29,15 @@
       <mat-header-cell *matHeaderCellDef> Media </mat-header-cell>
       <mat-cell *matCellDef="let element">
         <ng-template [ngIf]="element.type == 'IMAGE'">
-          <img width="200px" height="200px" [src]="base64(element)" />
+          <img width="200px" height="200px" [src]="base64(element)" lazy-load="base64(element)" />
         </ng-template>
         <ng-template [ngIf]="element.type == 'VIDEO'">
           <video width="300px" height="200px" controls>
-            <source type="video/mp4" [src]="base64(element)">
+            <source type="video/mp4" [src]="base64(element)" lazy-load="base64(element)">
           </video>
         </ng-template>
         <ng-template [ngIf]="element.type == 'AUDIO'">
-          <audio controls [src]="base64(element)">
+          <audio controls [src]="base64(element)" lazy-load="base64(element)">
           </audio>
         </ng-template>
 

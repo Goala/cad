@@ -15,6 +15,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatTableModule} from '@angular/material/table';
+import { LazyLoadModule } from '@greg-md/ng-lazy-load';
 
 import { AppComponent } from './app.component';
 import { ItemList } from './itemList/itemList.component';
@@ -41,7 +42,8 @@ import { ItemList } from './itemList/itemList.component';
     MatInputModule,
     MatRadioModule,
     MatTableModule,
-    NgHttpLoaderModule
+    NgHttpLoaderModule,
+    LazyLoadModule
   ],
   exports: [
     MatToolbarModule,

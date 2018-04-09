@@ -67,7 +67,6 @@ export class AppComponent implements OnInit, OnChanges {
       this.media.fileEnding = '';
       this.uploadEnabled = false;
       this.base64 = '';
-
     });
   };
 
