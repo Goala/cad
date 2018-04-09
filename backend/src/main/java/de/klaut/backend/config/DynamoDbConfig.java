@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.util.StringUtils;
 
 @Configuration
-@EnableDynamoDBRepositories
+@EnableDynamoDBRepositories(basePackages = "de.klaut.backend.repository")
 public class DynamoDbConfig {
 
     @Value("${amazon.dynamodb.endpoint}")
