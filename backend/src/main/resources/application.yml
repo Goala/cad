@@ -13,10 +13,9 @@ spring:
 amazon:
   dynamodb:
     endpoint: http://localhost:8000/
-    amazon:
-      aws:
-        accesskey: AKIAITQDYQG6Q6UWI33Q
-        secretkey: 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
+  aws:
+    accesskey: AKIAITQDYQG6Q6UWI33Q
+    secretkey: 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
 
 ---
 
