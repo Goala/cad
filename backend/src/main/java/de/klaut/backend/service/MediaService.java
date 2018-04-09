@@ -2,6 +2,7 @@ package de.klaut.backend.service;
 
 import de.klaut.backend.model.Media;
 import de.klaut.backend.repository.MediaRepository;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -16,8 +17,8 @@ public class MediaService {
         this.mediaRepository = mediaRepository;
     }
 
-    public Iterable<Media> findAll(int fromIndex, int toIndex) {
-        return mediaRepository.findAll();
+    public Iterable<Media> findAll(Pageable pageable) {
+        return mediaRepository.findAll(pageable);
     }
 
     public Optional<Media> findById(String id) {

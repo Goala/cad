@@ -3,6 +3,7 @@ package de.klaut.backend.controller;
 import de.klaut.backend.model.Media;
 import de.klaut.backend.model.MediaDto;
 import de.klaut.backend.service.MediaService;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,8 +22,8 @@ public class MediaController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<Iterable<Media>> findAll(@PathParam("from") int fromIndex, @PathParam("to") int toIndex) {
-        return ResponseEntity.ok(mediaService.findAll(fromIndex, toIndex));
+    public ResponseEntity<Iterable<Media>> findAll(Pageable pageable) {
+        return ResponseEntity.ok(mediaService.findAll(pageable));
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
