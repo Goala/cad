@@ -1,5 +1,8 @@
 # Cloud Application Development
 
+- Lukas Groß
+- Max Stenke
+- Jan-David Schindler
 ## Technologies
 
 - Java
@@ -101,4 +104,7 @@ COPY backend/target/backend*.jar .
 
 The hole application is deployed on an AWS EC2-Instance available [here](http://ec2-34-208-179-7.us-west-2.compute.amazonaws.com).
 
+## Screenshot
+
+![Screenshot](./images/app-screenshot.png)
 
