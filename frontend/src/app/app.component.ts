@@ -21,6 +21,7 @@ export class AppComponent implements OnInit, OnChanges {
     fileEnding: '',
     description: '',
     type: '',
+    fileUrl: '',
     fileBase64: ''
   };
 
@@ -63,7 +64,6 @@ export class AppComponent implements OnInit, OnChanges {
       this.loadData();
       this.media.description = '';
       this.media.type = '';
-      this.media.fileBase64 = '';
       this.media.fileEnding = '';
       this.uploadEnabled = false;
       this.base64 = '';
@@ -77,8 +77,8 @@ export class AppComponent implements OnInit, OnChanges {
 
   loadData(): Array<Media> {
     this.service.getData().subscribe(
-      data => {
-        this.items = data as Array<Media>;
+      data => {        
+        this.items = data["content"] as Array<Media>;
         return data;
       },
       err => console.error(err),

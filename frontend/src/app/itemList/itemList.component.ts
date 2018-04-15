@@ -10,7 +10,7 @@ import { MatTableDataSource } from '@angular/material';
 })
 
 export class ItemList implements OnInit, OnChanges {
-  displayedColumns = ['description', 'type', 'media'];
+  displayedColumns = ['description', 'media'];
   dataSource;
 
   @Input()
@@ -32,9 +32,5 @@ export class ItemList implements OnInit, OnChanges {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
-  }
-
-  base64(element: Media) {
-    return 'data:' + element.type + '/' + element.fileEnding + ';base64,' + element.fileBase64;
   }
 }

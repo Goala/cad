@@ -19,25 +19,19 @@
       <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
     </ng-container>
 
-    <!-- Type Column -->
-    <ng-container matColumnDef="type">
-      <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.type}} </mat-cell>
-
-    </ng-container>
     <ng-container matColumnDef="media">
       <mat-header-cell *matHeaderCellDef> Media </mat-header-cell>
       <mat-cell *matCellDef="let element">
         <ng-template [ngIf]="element.type == 'IMAGE'">
-          <img width="200px" height="200px" [src]="base64(element)" lazy-load="base64(element)" />
+          <img width="200px" height="200px" [src]="element.fileUrl" lazy-load="element.fileUrl" />
         </ng-template>
         <ng-template [ngIf]="element.type == 'VIDEO'">
           <video width="300px" height="200px" controls>
-            <source type="video/mp4" [src]="base64(element)" lazy-load="base64(element)">
+            <source type="video/mp4" [src]="element.fileUrl" lazy-load="element.fileUrl">
           </video>
         </ng-template>
         <ng-template [ngIf]="element.type == 'AUDIO'">
-          <audio controls [src]="base64(element)" lazy-load="base64(element)">
+          <audio controls [src]="element.fileUrl" lazy-load="element.fileUrl">
           </audio>
         </ng-template>
 

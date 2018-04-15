@@ -3,6 +3,7 @@ export class Media {
   type: string;
   fileEnding: string;
   description: string;
+  fileUrl: string;
   fileBase64: string;
 }
 

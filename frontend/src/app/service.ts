@@ -14,13 +14,8 @@ export class MediaService {
 
     constructor(private http:HttpClient) {}
 
-    // Uses http.get() to load data from a single API endpoint
     getData() {
         return this.http.get('/media');
-    }
-
-    getBase64ById(id) {
-        return this.http.get(`/media/${id}/base64`);
     }
 
     postData(data: MediaDto): Observable<MediaDto> {
