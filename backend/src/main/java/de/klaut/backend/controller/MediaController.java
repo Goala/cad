@@ -3,12 +3,12 @@ package de.klaut.backend.controller;
 import de.klaut.backend.model.Media;
 import de.klaut.backend.model.MediaDto;
 import de.klaut.backend.service.MediaService;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -22,7 +22,7 @@ public class MediaController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<Iterable<Media>> findAll(Pageable pageable) {
+    public ResponseEntity<Page<Media>> findAll(Pageable pageable) {
         return ResponseEntity.ok(mediaService.findAll(pageable));
     }
 
@@ -33,12 +33,13 @@ public class MediaController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<String> saveFile(@RequestBody MediaDto mediaDto) {
+    public ResponseEntity<Media> saveFile(@RequestBody MediaDto mediaDto) {
         try {
             Media mediaToSave = new Media(mediaDto);
-            final String id = mediaService.save(mediaToSave);
-            return ResponseEntity.ok(id);
+            Media savedMedia = mediaService.save(mediaToSave);
+            return new ResponseEntity<>(savedMedia, HttpStatus.CREATED);
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.badRequest().build();
         }
     }

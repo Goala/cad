@@ -11,11 +11,9 @@ spring:
   profiles: dev
 
 amazon:
-  dynamodb:
-    endpoint: arn:aws:dynamodb:us-west-2:256692413105:table/media
   aws:
-    accesskey: AKIAITQDYQG6Q6UWI33Q
-    secretkey: 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
+    accesskey:
+    secretkey:
 
 ---
 
