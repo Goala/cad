@@ -35,8 +35,7 @@ public class MediaController {
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Media> saveFile(@RequestBody MediaDto mediaDto) {
         try {
-            Media mediaToSave = new Media(mediaDto);
-            Media savedMedia = mediaService.save(mediaToSave);
+            Media savedMedia = mediaService.save(mediaDto);
             return new ResponseEntity<>(savedMedia, HttpStatus.CREATED);
         } catch (Exception e) {
             e.printStackTrace();

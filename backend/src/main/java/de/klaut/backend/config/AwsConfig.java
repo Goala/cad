@@ -40,4 +40,13 @@ public class AwsConfig {
                 .withRegion(Regions.US_WEST_2)
                 .build();
     }
+
+    @Bean
+    public AmazonS3 amazonS3() {
+        return AmazonS3ClientBuilder
+                .standard()
+                .withCredentials(amazonAWSCredentialsProvider())
+                .withRegion(Regions.US_WEST_2)
+                .build();
+    }
 }
