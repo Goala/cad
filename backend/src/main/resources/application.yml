@@ -5,16 +5,16 @@ spring:
   profiles:
     active: "dev"
 
----
-
-spring:
-  profiles: dev
-
 amazon:
   aws:
     accesskey:
     secretkey:
     bucketName: mediafilescad
+
+---
+
+spring:
+  profiles: dev
 
 ---
 
